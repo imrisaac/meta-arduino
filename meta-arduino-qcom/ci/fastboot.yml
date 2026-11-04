@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/siemens/kas/master/kas/schema-kas.json
+
+# Fast-boot overlay, applied on top of a machine file:
+#   kas build ci/imola.yml:ci/fastboot.yml --target arduino-fastboot-image
+# It changes the UKI for every image in the build, not only the fast-boot one.
+
+header:
+  version: 14
+
+local_conf_header:
+  fastboot: |
+    # Kernel config fragment (linux-arduino/fastboot.cfg)
+    ARDUINO_FASTBOOT = "1"
+    # Boot the UKI straight into the rootfs: eMMC, ext4 and the MCU UART
+    # drivers are built into the kernel, so the initramfs only adds a stage.
+    # The distro assigns INITRAMFS_IMAGE after local.conf, hence forcevariable.
+    INITRAMFS_IMAGE:forcevariable = ""
+    # The serial console is synchronous at 115200 baud; keep boot messages off it.
+    KERNEL_CMDLINE_EXTRA:append = " quiet loglevel=3 rootfstype=ext4 systemd.show_status=error"
+    # PSCI idle states slow the kernel stage by ~170 ms and make it vary by
+    # ~150 ms between boots (eMMC probing pays the wake-up latency).
+    KERNEL_CMDLINE_EXTRA:append = " cpuidle.off=1"
+    # systemd otherwise probes the serial /dev/console with ANSI queries for
+    # its terminfo name and size, each waiting 333 ms for a reply that never
+    # comes when nothing is attached: ~1 s before the first unit starts.
+    KERNEL_CMDLINE_EXTRA:append = " TERM=vt220 systemd.tty.rows.console=24 systemd.tty.columns.console=80"
+
+target:
+  - arduino-fastboot-image
