@@ -1,0 +1,37 @@
+From: Isaac Reed <imrisaac@gmail.com>
+Subject: [PATCH] cpuidle: psci: initialize after deferred probing
+
+psci-cpuidle is a faux device, which probes synchronously from
+faux_device_create() and cannot return -EPROBE_DEFER. In OSI mode each
+CPU attaches to its PSCI PM domain, and on QCM2290 those domains are
+only registered once their parent, the MPM, has probed. At
+device_initcall time that has not happened yet: the attach fails,
+faux_device_create() returns NULL and cpuidle is never enabled, leaving
+the CPUs in WFI only.
+
+  CPUidle PSCI: CPU 0 failed to PSCI idle
+  CPUidle PSCI: Failed to create psci-cpuidle device
+  CPUidle PSCI: Initialized CPU PM domain topology using OSI mode
+
+Register the device at late_initcall_sync, after deferred probing has
+been flushed.
+
+Upstream-Status: Pending
+
+---
+ drivers/cpuidle/cpuidle-psci.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+--- a/drivers/cpuidle/cpuidle-psci.c
++++ b/drivers/cpuidle/cpuidle-psci.c
+@@ -489,4 +489,9 @@
+
+ 	return 0;
+ }
+-device_initcall(psci_idle_init);
++/*
++ * The faux device probes synchronously and cannot defer. In OSI mode the CPU
++ * PM domains may only be registered once their parent domain (e.g. the
++ * Qualcomm MPM) has probed, so wait until deferred probing has been flushed.
++ */
++late_initcall_sync(psci_idle_init);
