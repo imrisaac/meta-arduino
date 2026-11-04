@@ -20,7 +20,7 @@
 #include <systemd/sd-daemon.h>
 #include <xf86drmMode.h>
 
-#include "lvgl.h"
+#include "lvgl/lvgl.h"
 
 #define DISPLAY_WAIT_MS 5000
 #define SWEEP_MS        1200
