@@ -47,4 +47,5 @@ SYSTEMD_SERVICE:${PN} = "arduino-dash.service"
 FILES:${PN} += "${libdir}/modules-load.d ${nonarch_libdir}/modprobe.d"
 
 RRECOMMENDS:${PN} += "kernel-module-msm kernel-module-anx7625 kernel-module-dispcc-qcm2290 \
-    kernel-module-i2c-qcom-geni kernel-module-phy-qcom-qusb2 kernel-module-phy-qcom-qmp-usbc"
+    kernel-module-i2c-qcom-geni kernel-module-phy-qcom-qusb2 kernel-module-phy-qcom-qmp-usbc \
+    kernel-module-dwc3-qcom-legacy"
