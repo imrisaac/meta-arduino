@@ -1,0 +1,18 @@
+[Unit]
+Description=Arduino Dash
+# Same early start as arduino-router: only the rootfs, the journal and the
+# display drivers loaded by systemd-modules-load are needed.
+DefaultDependencies=no
+After=systemd-journald.socket systemd-modules-load.service
+Conflicts=shutdown.target
+Before=arduino-app.target shutdown.target
+
+[Service]
+# READY=1 is sent once the first frame is on screen
+Type=notify
+ExecStart=/usr/bin/arduino-dash
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=arduino-app.target
