@@ -1,0 +1,19 @@
+[Unit]
+Description=Arduino Router Service
+# Start ahead of sysinit.target: that target waits for udev to coldplug every
+# device, while the MCU UART and GPIO drivers are built in and their /dev nodes
+# already exist. The router only needs the rootfs, /run and the journal.
+DefaultDependencies=no
+After=systemd-journald.socket
+Conflicts=shutdown.target
+Before=arduino-app.target shutdown.target
+
+[Service]
+ExecStart=/usr/bin/arduino-router --unix-port /var/run/arduino-router.sock
+StandardOutput=journal
+StandardError=journal
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=arduino-app.target

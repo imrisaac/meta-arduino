@@ -1,0 +1,4 @@
+[Unit]
+Description=Arduino Application (fast-boot critical path)
+Wants=arduino-router.service
+After=arduino-router.service
