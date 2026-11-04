@@ -1,0 +1,24 @@
+#!/bin/sh
+# Flash the Zephyr loader and the BootIndicator sketch onto the STM32 over SWD.
+# Runs on every boot but only touches the MCU when the firmware files changed.
+# The openocd commands follow the core's flash_bootloader.cfg and
+# flash_sketch.cfg for the UNO Q.
+
+FW=/usr/lib/firmware/arduino
+LOADER=$FW/@LOADER@.elf
+SKETCH=$FW/BootIndicator.ino.elf-zsk.bin
+STAMP=/etc/arduino/mcu-firmware.sha256
+
+sum=$(cat "$LOADER" "$SKETCH" | sha256sum)
+[ "$sum" = "$(cat "$STAMP" 2>/dev/null)" ] && exit 0
+
+echo "Flashing $LOADER and $SKETCH"
+/opt/openocd/bin/openocd -d0 -s /opt/openocd -f openocd_gpiod.cfg -c " \
+    reset_config srst_only srst_nogate srst_push_pull connect_assert_srst; \
+    init; reset; halt; flash info 0; \
+    flash write_image erase $LOADER; \
+    flash write_image erase $SKETCH 0x8100000 bin; \
+    reset; sleep 100; mww 0x40036400 0xCAFFEEEE; shutdown" || exit 1
+
+mkdir -p "${STAMP%/*}"
+echo "$sum" > "$STAMP"

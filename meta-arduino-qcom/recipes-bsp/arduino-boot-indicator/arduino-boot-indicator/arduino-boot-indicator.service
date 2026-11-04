@@ -1,0 +1,12 @@
+[Unit]
+Description=Report boot completion to the BootIndicator sketch
+After=arduino-app.target
+
+[Service]
+# simple, not oneshot: the script waits for the boot to finish, so its own
+# start job must not hold the boot open
+Type=simple
+ExecStart=/usr/bin/arduino-boot-indicator
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Flash the BootIndicator sketch onto the MCU when it changed
+After=arduino-app.target
+Before=arduino-boot-indicator.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/arduino-mcu-flash
+
+[Install]
+WantedBy=multi-user.target

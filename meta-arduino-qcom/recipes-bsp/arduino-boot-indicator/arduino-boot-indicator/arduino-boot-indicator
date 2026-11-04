@@ -1,0 +1,28 @@
+#!/bin/sh
+# Tell the BootIndicator sketch how long the boot took, once systemd reports
+# that every boot job has finished. Times are in ms from power-on, like the
+# total printed by systemd-analyze.
+
+systemctl is-system-running --wait > /dev/null
+
+prop() {
+    systemctl show --value "$@"
+}
+
+firmware=$(prop -p FirmwareTimestampMonotonic)
+app=$(prop -p ActiveEnterTimestampMonotonic arduino-app.target)
+finish=$(prop -p FinishTimestampMonotonic)
+app_ms=$(( (firmware + app) / 1000 ))
+full_ms=$(( (firmware + finish) / 1000 ))
+
+# The sketch registers boot_done shortly after the MCU starts it
+for i in $(seq 30); do
+    if arduino-router-cli boot_done "$app_ms" "$full_ms" | grep -q "Got RPC response"; then
+        echo "Reported app ${app_ms}ms, full boot ${full_ms}ms"
+        exit 0
+    fi
+    sleep 1
+done
+
+echo "BootIndicator sketch did not answer boot_done" >&2
+exit 1
