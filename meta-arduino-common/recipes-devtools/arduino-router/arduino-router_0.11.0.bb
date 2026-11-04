@@ -8,7 +8,10 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 PV = "0.11.0"
 
-SRC_URI = "git://github.com/arduino/arduino-router.git;protocol=https;nobranch=1"
+SRC_URI = " \
+    git://github.com/arduino/arduino-router.git;protocol=https;nobranch=1 \
+    file://0001-generator-recognise-the-UNO-Q-by-its-DMI-product-nam.patch \
+"
 SRCREV = "e25c513d74a0105c020b677a1c9b8228618fb586"
 
 inherit go systemd

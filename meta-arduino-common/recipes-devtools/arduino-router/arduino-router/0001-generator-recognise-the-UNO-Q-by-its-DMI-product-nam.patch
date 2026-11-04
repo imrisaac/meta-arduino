@@ -1,0 +1,31 @@
+From 0a5eb5ec64fda4c5505805f933b8ee2146f1b96a Mon Sep 17 00:00:00 2001
+From: imrisaac <imrisaac@gmail.com>
+Date: Wed, 4 Nov 2026 16:21:44 -0500
+Subject: [PATCH] generator: recognise the UNO Q by its DMI product name
+
+Newer kernels expose the firmware's SMBIOS tables, and the generator
+reads /sys/class/dmi/id/product_name before the devicetree. On the
+UNO Q that name is "Arduino UnoQ", which matched neither case, so no
+drop-in was written and the router ran without --serial-port.
+
+Upstream-Status: Pending
+Signed-off-by: imrisaac <imrisaac@gmail.com>
+---
+ .../lib/systemd/system-generators/systemd-arduino-router.sh   | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/debian/arduino-router/usr/lib/systemd/system-generators/systemd-arduino-router.sh b/debian/arduino-router/usr/lib/systemd/system-generators/systemd-arduino-router.sh
+index a612d91..e4f3670 100755
+--- a/debian/arduino-router/usr/lib/systemd/system-generators/systemd-arduino-router.sh
++++ b/debian/arduino-router/usr/lib/systemd/system-generators/systemd-arduino-router.sh
+@@ -14,7 +14,9 @@ fi
+ mkdir -p "$TARGET_DIR"
+ 
+ case "$model" in
+-  "Imola"*|"imola"*)
++  # The DMI product name is "Arduino UnoQ" once the kernel exposes the
++  # firmware's SMBIOS tables; older kernels fall back to the devicetree.
++  "Imola"*|"imola"*|"Arduino UnoQ"*)
+     cp "${CONF_DIR}/10-imola.conf" "$TARGET_DIR" ;;
+   "Monza"*|"monza"*)
+     cp "${CONF_DIR}/10-monza.conf" "$TARGET_DIR" ;;
