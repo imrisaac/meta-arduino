@@ -1,0 +1,1040 @@
+From 5b7840816f2865ec17508c8861724e887bc42956 Mon Sep 17 00:00:00 2001
+From: Mikko Gronoff <mikko.gronoff@qt.io>
+Date: Wed, 29 Jul 2026 11:05:01 +0300
+Subject: [PATCH] recipes: update LICENSE to SPDX Expression syntax
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Converted to new syntax by running openembedded-core/scripts/contrib/convert-spdx-licenses.py
+on the layer. Conversion issue:
+
+"ERROR:51: Invalid expression for parentheses
+The-Qt-Company-Commercial  OR  (GPL-3.0-only  AND  Qt-GPL-exception-1.0)
+                                                   ^^^^^^^^^^^^^^^^^^^^"
+
+resolved by manually adjusting "(GPL-3.0-only & Qt-GPL-exception-1.0)"
+to "(GPL-3.0-only WITH Qt-GPL-exception-1.0)" where applicable.
+
+Change-Id: Id1729dbaeb24172f0f868c4ae0e2eb70294bf0bd
+Reviewed-by: Jouni Äijälä <jouni.aijala@qt.io>
+
+(cherry picked from commit 675695eb on the dev branch; backported to 6.12
+for oe-core blacksail, whose license parser requires SPDX syntax. Conflict
+in qtwayland_git.bb resolved by converting the 6.12 expression.)
+---
+ recipes-qt/qt6/qmlcompilerplus_git.bb               | 2 +-
+ recipes-qt/qt6/qt3d-examples_git.bb                 | 4 ++--
+ recipes-qt/qt6/qt3d_git.bb                          | 2 +-
+ recipes-qt/qt6/qt5compat-examples_git.bb            | 2 +-
+ recipes-qt/qt6/qt5compat_git.bb                     | 2 +-
+ recipes-qt/qt6/qtapplicationmanager-examples_git.bb | 2 +-
+ recipes-qt/qt6/qtapplicationmanager_git.bb          | 2 +-
+ recipes-qt/qt6/qtbase-examples_git.bb               | 2 +-
+ recipes-qt/qt6/qtbase_git.bb                        | 3 +--
+ recipes-qt/qt6/qtcanvaspainter-examples_git.bb      | 2 +-
+ recipes-qt/qt6/qtcanvaspainter_git.bb               | 2 +-
+ recipes-qt/qt6/qtcharts-examples_git.bb             | 2 +-
+ recipes-qt/qt6/qtcharts_git.bb                      | 2 +-
+ recipes-qt/qt6/qtcoap-examples_git.bb               | 2 +-
+ recipes-qt/qt6/qtcoap_git.bb                        | 2 +-
+ recipes-qt/qt6/qtconnectivity-examples_git.bb       | 2 +-
+ recipes-qt/qt6/qtconnectivity_git.bb                | 2 +-
+ recipes-qt/qt6/qtdatavis3d-examples_git.bb          | 2 +-
+ recipes-qt/qt6/qtdatavis3d_git.bb                   | 2 +-
+ recipes-qt/qt6/qtdeclarative-examples_git.bb        | 2 +-
+ recipes-qt/qt6/qtdeclarative_git.bb                 | 2 +-
+ recipes-qt/qt6/qtdeviceutilities-examples_git.bb    | 2 +-
+ recipes-qt/qt6/qtdeviceutilities_git.bb             | 2 +-
+ recipes-qt/qt6/qtdoc-examples_git.bb                | 2 +-
+ recipes-qt/qt6/qtdoc_git.bb                         | 2 +-
+ recipes-qt/qt6/qtgraphs-examples_git.bb             | 2 +-
+ recipes-qt/qt6/qtgraphs_git.bb                      | 2 +-
+ recipes-qt/qt6/qtgrpc-examples_git.bb               | 2 +-
+ recipes-qt/qt6/qtgrpc_git.bb                        | 2 +-
+ recipes-qt/qt6/qthttpserver-examples_git.bb         | 2 +-
+ recipes-qt/qt6/qthttpserver_git.bb                  | 2 +-
+ recipes-qt/qt6/qtimageformats_git.bb                | 2 +-
+ recipes-qt/qt6/qtinsighttracker-examples_git.bb     | 2 +-
+ recipes-qt/qt6/qtinsighttracker_git.bb              | 2 +-
+ recipes-qt/qt6/qtinterfaceframework-examples_git.bb | 2 +-
+ recipes-qt/qt6/qtinterfaceframework_git.bb          | 2 +-
+ recipes-qt/qt6/qtlanguageserver_git.bb              | 2 +-
+ recipes-qt/qt6/qtlocation-examples_git.bb           | 2 +-
+ recipes-qt/qt6/qtlocation_git.bb                    | 2 +-
+ recipes-qt/qt6/qtlottie_git.bb                      | 2 +-
+ recipes-qt/qt6/qtmqtt-examples_git.bb               | 2 +-
+ recipes-qt/qt6/qtmqtt_git.bb                        | 2 +-
+ recipes-qt/qt6/qtmultimedia-examples_git.bb         | 2 +-
+ recipes-qt/qt6/qtmultimedia_git.bb                  | 2 +-
+ recipes-qt/qt6/qtnetworkauth-examples_git.bb        | 2 +-
+ recipes-qt/qt6/qtnetworkauth_git.bb                 | 2 +-
+ recipes-qt/qt6/qtopcua-examples_git.bb              | 2 +-
+ recipes-qt/qt6/qtopcua_git.bb                       | 2 +-
+ recipes-qt/qt6/qtpdf-examples_git.bb                | 2 +-
+ recipes-qt/qt6/qtpositioning-examples_git.bb        | 2 +-
+ recipes-qt/qt6/qtpositioning_git.bb                 | 2 +-
+ recipes-qt/qt6/qtquick3d-examples_git.bb            | 2 +-
+ recipes-qt/qt6/qtquick3d_git.bb                     | 2 +-
+ recipes-qt/qt6/qtquick3dphysics-examples_git.bb     | 2 +-
+ recipes-qt/qt6/qtquick3dphysics_git.bb              | 2 +-
+ recipes-qt/qt6/qtquickdesigner-components_git.bb    | 2 +-
+ recipes-qt/qt6/qtquicktimeline_git.bb               | 2 +-
+ recipes-qt/qt6/qtremoteobjects-examples_git.bb      | 2 +-
+ recipes-qt/qt6/qtremoteobjects_git.bb               | 2 +-
+ recipes-qt/qt6/qtscxml-examples_git.bb              | 2 +-
+ recipes-qt/qt6/qtscxml_git.bb                       | 2 +-
+ recipes-qt/qt6/qtsensors-examples_git.bb            | 2 +-
+ recipes-qt/qt6/qtsensors_git.bb                     | 2 +-
+ recipes-qt/qt6/qtserialbus-examples_git.bb          | 2 +-
+ recipes-qt/qt6/qtserialbus_git.bb                   | 2 +-
+ recipes-qt/qt6/qtserialport-examples_git.bb         | 2 +-
+ recipes-qt/qt6/qtserialport_git.bb                  | 2 +-
+ recipes-qt/qt6/qtshadertools_git.bb                 | 2 +-
+ recipes-qt/qt6/qtspeech-examples_git.bb             | 2 +-
+ recipes-qt/qt6/qtspeech_git.bb                      | 2 +-
+ recipes-qt/qt6/qtsvg_git.bb                         | 2 +-
+ recipes-qt/qt6/qttasktree-examples_git.bb           | 2 +-
+ recipes-qt/qt6/qttasktree_git.bb                    | 2 +-
+ recipes-qt/qt6/qttools-examples_git.bb              | 2 +-
+ recipes-qt/qt6/qttools_git.bb                       | 2 +-
+ recipes-qt/qt6/qttranslations_git.bb                | 2 +-
+ recipes-qt/qt6/qtvirtualkeyboard-examples_git.bb    | 2 +-
+ recipes-qt/qt6/qtvirtualkeyboard_git.bb             | 2 +-
+ recipes-qt/qt6/qtvncserver-examples_git.bb          | 2 +-
+ recipes-qt/qt6/qtvncserver_git.bb                   | 2 +-
+ recipes-qt/qt6/qtwayland-examples_git.bb            | 2 +-
+ recipes-qt/qt6/qtwayland_git.bb                     | 2 +-
+ recipes-qt/qt6/qtwebchannel-examples_git.bb         | 2 +-
+ recipes-qt/qt6/qtwebchannel_git.bb                  | 2 +-
+ recipes-qt/qt6/qtwebengine-examples_git.bb          | 4 ++--
+ recipes-qt/qt6/qtwebengine.inc                      | 2 +-
+ recipes-qt/qt6/qtwebsockets-examples_git.bb         | 2 +-
+ recipes-qt/qt6/qtwebsockets_git.bb                  | 2 +-
+ recipes-qt/qt6/qtwebview-examples_git.bb            | 2 +-
+ recipes-qt/qt6/qtwebview_git.bb                     | 2 +-
+ 90 files changed, 92 insertions(+), 93 deletions(-)
+
+diff --git a/recipes-qt/qt6/qmlcompilerplus_git.bb b/recipes-qt/qt6/qmlcompilerplus_git.bb
+index 33cf72d5..acf9d63e 100644
+--- a/recipes-qt/qt6/qmlcompilerplus_git.bb
++++ b/recipes-qt/qt6/qmlcompilerplus_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial"
++LICENSE = "LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qt3d-examples_git.bb b/recipes-qt/qt6/qt3d-examples_git.bb
+index f9f1626d..cb6b3f2d 100644
+--- a/recipes-qt/qt6/qt3d-examples_git.bb
++++ b/recipes-qt/qt6/qt3d-examples_git.bb
+@@ -1,11 +1,11 @@
+-LICENSE = "(The-Qt-Company-Commercial | BSD-3-Clause) & CC-BY-4.0 & LicenseRef-MIRAMAR"
++LICENSE = "CC-BY-4.0 AND LicenseRef-MIRAMAR AND (BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/CC-BY-4.0.txt;md5=ed88d31cea57b15030a1f58ceb04e0d5 \
+     file://LICENSES/LicenseRef-MIRAMAR.txt;md5=6dd50bdc58b03a7976544fb939d5647b \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+ "
+-NO_GENERIC_LICENSE[LicenseRef-MIRAMAR] = "LICENSES/LicenseRef-MIRAMAR.txt"
++NO_GENERIC_LICENSE[MIRAMAR] = "LICENSES/LicenseRef-MIRAMAR.txt"
+ 
+ inherit qt6-cmake
+ inherit features_check
+diff --git a/recipes-qt/qt6/qt3d_git.bb b/recipes-qt/qt6/qt3d_git.bb
+index 444f7288..b83394a2 100644
+--- a/recipes-qt/qt6/qt3d_git.bb
++++ b/recipes-qt/qt6/qt3d_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only) & BSD-3-Clause & MIT"
++LICENSE = "BSD-3-Clause AND MIT AND (GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qt5compat-examples_git.bb b/recipes-qt/qt6/qt5compat-examples_git.bb
+index bb68ab61..6d68bc71 100644
+--- a/recipes-qt/qt6/qt5compat-examples_git.bb
++++ b/recipes-qt/qt6/qt5compat-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qt5compat_git.bb b/recipes-qt/qt6/qt5compat_git.bb
+index cc54d967..4a7c7f4b 100644
+--- a/recipes-qt/qt6/qt5compat_git.bb
++++ b/recipes-qt/qt6/qt5compat_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause) & BSD-2-Clause"
++LICENSE = "BSD-2-Clause AND (BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtapplicationmanager-examples_git.bb b/recipes-qt/qt6/qtapplicationmanager-examples_git.bb
+index e7258511..6df03462 100644
+--- a/recipes-qt/qt6/qtapplicationmanager-examples_git.bb
++++ b/recipes-qt/qt6/qtapplicationmanager-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtapplicationmanager_git.bb b/recipes-qt/qt6/qtapplicationmanager_git.bb
+index 6f04345d..5d46fe4d 100644
+--- a/recipes-qt/qt6/qtapplicationmanager_git.bb
++++ b/recipes-qt/qt6/qtapplicationmanager_git.bb
+@@ -1,5 +1,5 @@
+ DESCRIPTION = "Qt component for application lifecycle management"
+-LICENSE = "The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtbase-examples_git.bb b/recipes-qt/qt6/qtbase-examples_git.bb
+index 6e0cb59d..61c91a6e 100644
+--- a/recipes-qt/qt6/qtbase-examples_git.bb
++++ b/recipes-qt/qt6/qtbase-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtbase_git.bb b/recipes-qt/qt6/qtbase_git.bb
+index 2327494d..a7644d8b 100644
+--- a/recipes-qt/qt6/qtbase_git.bb
++++ b/recipes-qt/qt6/qtbase_git.bb
+@@ -1,5 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) \
+-    & GFDL-1.3-no-invariants-only) & Apache-2.0 & BSD-3-Clause & BSL-1.0 & LGPL-2.1-or-later & HPND & MIT"
++LICENSE = "Apache-2.0 AND BSD-3-Clause AND BSL-1.0 AND HPND AND LGPL-2.1-or-later AND MIT AND (GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/Apache-2.0.txt;md5=b4c615f64dff32f71eeed614d13dfd4c \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+diff --git a/recipes-qt/qt6/qtcanvaspainter-examples_git.bb b/recipes-qt/qt6/qtcanvaspainter-examples_git.bb
+index 38a1383a..70c51c58 100644
+--- a/recipes-qt/qt6/qtcanvaspainter-examples_git.bb
++++ b/recipes-qt/qt6/qtcanvaspainter-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtcanvaspainter_git.bb b/recipes-qt/qt6/qtcanvaspainter_git.bb
+index 57fc087c..55d71d3c 100644
+--- a/recipes-qt/qt6/qtcanvaspainter_git.bb
++++ b/recipes-qt/qt6/qtcanvaspainter_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & GFDL-1.3-no-invariants-only & BSD-3-Clause) & Zlib"
++LICENSE = "Zlib AND (BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtcharts-examples_git.bb b/recipes-qt/qt6/qtcharts-examples_git.bb
+index c1c27bfb..846c2fc5 100644
+--- a/recipes-qt/qt6/qtcharts-examples_git.bb
++++ b/recipes-qt/qt6/qtcharts-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtcharts_git.bb b/recipes-qt/qt6/qtcharts_git.bb
+index 7d279170..cf84707a 100644
+--- a/recipes-qt/qt6/qtcharts_git.bb
++++ b/recipes-qt/qt6/qtcharts_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only & GFDL-1.3-no-invariants-only"
++LICENSE = "GFDL-1.3-no-invariants-only AND GPL-3.0-only OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+     file://LICENSES/GPL-3.0-only.txt;md5=d32239bcb673463ab874e80d47fae504 \
+diff --git a/recipes-qt/qt6/qtcoap-examples_git.bb b/recipes-qt/qt6/qtcoap-examples_git.bb
+index 2115f153..4d971d2b 100644
+--- a/recipes-qt/qt6/qtcoap-examples_git.bb
++++ b/recipes-qt/qt6/qtcoap-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtcoap_git.bb b/recipes-qt/qt6/qtcoap_git.bb
+index baf4949c..90faa41d 100644
+--- a/recipes-qt/qt6/qtcoap_git.bb
++++ b/recipes-qt/qt6/qtcoap_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtconnectivity-examples_git.bb b/recipes-qt/qt6/qtconnectivity-examples_git.bb
+index f571b62e..d981296e 100644
+--- a/recipes-qt/qt6/qtconnectivity-examples_git.bb
++++ b/recipes-qt/qt6/qtconnectivity-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | BSD-3-Clause) & Apache-2.0"
++LICENSE = "Apache-2.0 AND (BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/Apache-2.0.txt;md5=b4c615f64dff32f71eeed614d13dfd4c \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+diff --git a/recipes-qt/qt6/qtconnectivity_git.bb b/recipes-qt/qt6/qtconnectivity_git.bb
+index a9de0ecc..e221b3d7 100644
+--- a/recipes-qt/qt6/qtconnectivity_git.bb
++++ b/recipes-qt/qt6/qtconnectivity_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtdatavis3d-examples_git.bb b/recipes-qt/qt6/qtdatavis3d-examples_git.bb
+index f1f1a37f..dfcb9047 100644
+--- a/recipes-qt/qt6/qtdatavis3d-examples_git.bb
++++ b/recipes-qt/qt6/qtdatavis3d-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtdatavis3d_git.bb b/recipes-qt/qt6/qtdatavis3d_git.bb
+index b989183b..ace544de 100644
+--- a/recipes-qt/qt6/qtdatavis3d_git.bb
++++ b/recipes-qt/qt6/qtdatavis3d_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & GFDL-1.3-no-invariants-only"
++LICENSE = "GFDL-1.3-no-invariants-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+     file://LICENSES/GPL-3.0-only.txt;md5=d32239bcb673463ab874e80d47fae504 \
+diff --git a/recipes-qt/qt6/qtdeclarative-examples_git.bb b/recipes-qt/qt6/qtdeclarative-examples_git.bb
+index c9c5c9df..9a91c3bb 100644
+--- a/recipes-qt/qt6/qtdeclarative-examples_git.bb
++++ b/recipes-qt/qt6/qtdeclarative-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | BSD-3-Clause) & Apache-2.0 & CC-BY-3.0 & MIT & OFL-1.1"
++LICENSE = "Apache-2.0 AND CC-BY-3.0 AND MIT AND OFL-1.1 AND (BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/Apache-2.0.txt;md5=b4c615f64dff32f71eeed614d13dfd4c \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+diff --git a/recipes-qt/qt6/qtdeclarative_git.bb b/recipes-qt/qt6/qtdeclarative_git.bb
+index b972df05..a0b5e940 100644
+--- a/recipes-qt/qt6/qtdeclarative_git.bb
++++ b/recipes-qt/qt6/qtdeclarative_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause) & BSD-2-Clause"
++LICENSE = "BSD-2-Clause AND (BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtdeviceutilities-examples_git.bb b/recipes-qt/qt6/qtdeviceutilities-examples_git.bb
+index 40a36077..49615592 100644
+--- a/recipes-qt/qt6/qtdeviceutilities-examples_git.bb
++++ b/recipes-qt/qt6/qtdeviceutilities-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only"
++LICENSE = "GPL-3.0-only OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/GPL-3.0-only.txt;md5=d32239bcb673463ab874e80d47fae504 \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtdeviceutilities_git.bb b/recipes-qt/qt6/qtdeviceutilities_git.bb
+index ad3306b0..ee7e97b4 100644
+--- a/recipes-qt/qt6/qtdeviceutilities_git.bb
++++ b/recipes-qt/qt6/qtdeviceutilities_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtdoc-examples_git.bb b/recipes-qt/qt6/qtdoc-examples_git.bb
+index 3ecce6fc..08402b6c 100644
+--- a/recipes-qt/qt6/qtdoc-examples_git.bb
++++ b/recipes-qt/qt6/qtdoc-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | BSD-3-Clause) & Apache-2.0 & CC-BY-4.0 & CC-BY-SA-4.0 & ISC"
++LICENSE = "Apache-2.0 AND CC-BY-4.0 AND CC-BY-SA-4.0 AND ISC AND (BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/Apache-2.0.txt;md5=b4c615f64dff32f71eeed614d13dfd4c \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+diff --git a/recipes-qt/qt6/qtdoc_git.bb b/recipes-qt/qt6/qtdoc_git.bb
+index a8712ca0..51a88abf 100644
+--- a/recipes-qt/qt6/qtdoc_git.bb
++++ b/recipes-qt/qt6/qtdoc_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtgraphs-examples_git.bb b/recipes-qt/qt6/qtgraphs-examples_git.bb
+index 350543ae..bf9cf49c 100644
+--- a/recipes-qt/qt6/qtgraphs-examples_git.bb
++++ b/recipes-qt/qt6/qtgraphs-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtgraphs_git.bb b/recipes-qt/qt6/qtgraphs_git.bb
+index a0a85d45..3f82246b 100644
+--- a/recipes-qt/qt6/qtgraphs_git.bb
++++ b/recipes-qt/qt6/qtgraphs_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtgrpc-examples_git.bb b/recipes-qt/qt6/qtgrpc-examples_git.bb
+index 4a437732..5f840dbe 100644
+--- a/recipes-qt/qt6/qtgrpc-examples_git.bb
++++ b/recipes-qt/qt6/qtgrpc-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtgrpc_git.bb b/recipes-qt/qt6/qtgrpc_git.bb
+index cefdb90b..482ec67d 100644
+--- a/recipes-qt/qt6/qtgrpc_git.bb
++++ b/recipes-qt/qt6/qtgrpc_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (LGPL-3.0-only | GPL-2.0-only) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR LGPL-3.0-only) AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qthttpserver-examples_git.bb b/recipes-qt/qt6/qthttpserver-examples_git.bb
+index e81c9bf8..49aa6ee3 100644
+--- a/recipes-qt/qt6/qthttpserver-examples_git.bb
++++ b/recipes-qt/qt6/qthttpserver-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qthttpserver_git.bb b/recipes-qt/qt6/qthttpserver_git.bb
+index d80da07d..b4129370 100644
+--- a/recipes-qt/qt6/qthttpserver_git.bb
++++ b/recipes-qt/qt6/qthttpserver_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtimageformats_git.bb b/recipes-qt/qt6/qtimageformats_git.bb
+index fce8998c..af6be5bc 100644
+--- a/recipes-qt/qt6/qtimageformats_git.bb
++++ b/recipes-qt/qt6/qtimageformats_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only"
++LICENSE = "GFDL-1.3-no-invariants-only AND GPL-3.0-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+     file://LICENSES/GPL-2.0-only.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+diff --git a/recipes-qt/qt6/qtinsighttracker-examples_git.bb b/recipes-qt/qt6/qtinsighttracker-examples_git.bb
+index d1a0ccd4..ef40dfcc 100644
+--- a/recipes-qt/qt6/qtinsighttracker-examples_git.bb
++++ b/recipes-qt/qt6/qtinsighttracker-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtinsighttracker_git.bb b/recipes-qt/qt6/qtinsighttracker_git.bb
+index e440e305..1badd0f0 100644
+--- a/recipes-qt/qt6/qtinsighttracker_git.bb
++++ b/recipes-qt/qt6/qtinsighttracker_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial"
++LICENSE = "LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = "file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187"
+ 
+ inherit qt6-cmake
+diff --git a/recipes-qt/qt6/qtinterfaceframework-examples_git.bb b/recipes-qt/qt6/qtinterfaceframework-examples_git.bb
+index 030ff939..fc4cdbc3 100644
+--- a/recipes-qt/qt6/qtinterfaceframework-examples_git.bb
++++ b/recipes-qt/qt6/qtinterfaceframework-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtinterfaceframework_git.bb b/recipes-qt/qt6/qtinterfaceframework_git.bb
+index dcb40382..4f990ae8 100644
+--- a/recipes-qt/qt6/qtinterfaceframework_git.bb
++++ b/recipes-qt/qt6/qtinterfaceframework_git.bb
+@@ -1,5 +1,5 @@
+ DESCRIPTION = "Qt Interface Framework"
+-LICENSE = "The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtlanguageserver_git.bb b/recipes-qt/qt6/qtlanguageserver_git.bb
+index 7a2fed15..44be05e9 100644
+--- a/recipes-qt/qt6/qtlanguageserver_git.bb
++++ b/recipes-qt/qt6/qtlanguageserver_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only & (LGPL-3.0-only | GPL-2.0-only) & GFDL-1.3-no-invariants-only"
++LICENSE = "GFDL-1.3-no-invariants-only AND GPL-3.0-only AND (GPL-2.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+     file://LICENSES/GPL-2.0-only.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+diff --git a/recipes-qt/qt6/qtlocation-examples_git.bb b/recipes-qt/qt6/qtlocation-examples_git.bb
+index 0092732d..33210451 100644
+--- a/recipes-qt/qt6/qtlocation-examples_git.bb
++++ b/recipes-qt/qt6/qtlocation-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtlocation_git.bb b/recipes-qt/qt6/qtlocation_git.bb
+index 2d49d67d..efb9ef4a 100644
+--- a/recipes-qt/qt6/qtlocation_git.bb
++++ b/recipes-qt/qt6/qtlocation_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | GPL-3.0-only & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only) & BSD-3-Clause & MIT"
++LICENSE = "BSD-3-Clause AND MIT AND (GFDL-1.3-no-invariants-only AND GPL-3.0-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtlottie_git.bb b/recipes-qt/qt6/qtlottie_git.bb
+index 9b6dbbd2..c2415b10 100644
+--- a/recipes-qt/qt6/qtlottie_git.bb
++++ b/recipes-qt/qt6/qtlottie_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only & GFDL-1.3-no-invariants-only"
++LICENSE = "GFDL-1.3-no-invariants-only AND GPL-3.0-only OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+     file://LICENSES/GPL-3.0-only.txt;md5=d32239bcb673463ab874e80d47fae504 \
+diff --git a/recipes-qt/qt6/qtmqtt-examples_git.bb b/recipes-qt/qt6/qtmqtt-examples_git.bb
+index 0c30efe1..f648874b 100644
+--- a/recipes-qt/qt6/qtmqtt-examples_git.bb
++++ b/recipes-qt/qt6/qtmqtt-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtmqtt_git.bb b/recipes-qt/qt6/qtmqtt_git.bb
+index a5ceeb71..6f95147d 100644
+--- a/recipes-qt/qt6/qtmqtt_git.bb
++++ b/recipes-qt/qt6/qtmqtt_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtmultimedia-examples_git.bb b/recipes-qt/qt6/qtmultimedia-examples_git.bb
+index 53c1b621..119b2fd5 100644
+--- a/recipes-qt/qt6/qtmultimedia-examples_git.bb
++++ b/recipes-qt/qt6/qtmultimedia-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtmultimedia_git.bb b/recipes-qt/qt6/qtmultimedia_git.bb
+index c0981f94..ce897136 100644
+--- a/recipes-qt/qt6/qtmultimedia_git.bb
++++ b/recipes-qt/qt6/qtmultimedia_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-3.0-only) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only ) & Apache-2.0 & BSD-3-Clause & MPL-2.0"
++LICENSE = "Apache-2.0 AND BSD-3-Clause AND MPL-2.0 AND (GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND (GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtnetworkauth-examples_git.bb b/recipes-qt/qt6/qtnetworkauth-examples_git.bb
+index 4d7bb479..40923c29 100644
+--- a/recipes-qt/qt6/qtnetworkauth-examples_git.bb
++++ b/recipes-qt/qt6/qtnetworkauth-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtnetworkauth_git.bb b/recipes-qt/qt6/qtnetworkauth_git.bb
+index 262f6c9a..aa14a984 100644
+--- a/recipes-qt/qt6/qtnetworkauth_git.bb
++++ b/recipes-qt/qt6/qtnetworkauth_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtopcua-examples_git.bb b/recipes-qt/qt6/qtopcua-examples_git.bb
+index 454fdd27..9667873a 100644
+--- a/recipes-qt/qt6/qtopcua-examples_git.bb
++++ b/recipes-qt/qt6/qtopcua-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtopcua_git.bb b/recipes-qt/qt6/qtopcua_git.bb
+index 0b05bc89..5aa32eb6 100644
+--- a/recipes-qt/qt6/qtopcua_git.bb
++++ b/recipes-qt/qt6/qtopcua_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | GPL-3.0-only & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only) & BSD-3-Clause & CC-BY-SA-4.0 & CC0-1.0 & MIT & MPL-2.0"
++LICENSE = "BSD-3-Clause AND CC-BY-SA-4.0 AND CC0-1.0 AND MIT AND MPL-2.0 AND (GFDL-1.3-no-invariants-only AND GPL-3.0-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/Apache-2.0.txt;md5=b4c615f64dff32f71eeed614d13dfd4c \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+diff --git a/recipes-qt/qt6/qtpdf-examples_git.bb b/recipes-qt/qt6/qtpdf-examples_git.bb
+index ce0a18fb..f64ee6ca 100644
+--- a/recipes-qt/qt6/qtpdf-examples_git.bb
++++ b/recipes-qt/qt6/qtpdf-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtpositioning-examples_git.bb b/recipes-qt/qt6/qtpositioning-examples_git.bb
+index f0eeff69..f7240d56 100644
+--- a/recipes-qt/qt6/qtpositioning-examples_git.bb
++++ b/recipes-qt/qt6/qtpositioning-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | BSD-3-Clause) & Apache-2.0 & OFL-1.1"
++LICENSE = "Apache-2.0 AND OFL-1.1 AND (BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/Apache-2.0.txt;md5=3b83ef96387f14655fc854ddc3c6bd57 \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+diff --git a/recipes-qt/qt6/qtpositioning_git.bb b/recipes-qt/qt6/qtpositioning_git.bb
+index e8d386a8..0ec56c43 100644
+--- a/recipes-qt/qt6/qtpositioning_git.bb
++++ b/recipes-qt/qt6/qtpositioning_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | GPL-3.0-only & GFDL-1.3-no-invariants-only) & BSD-3-Clause & BSL-1.0 & MIT"
++LICENSE = "BSD-3-Clause AND BSL-1.0 AND MIT AND (GFDL-1.3-no-invariants-only AND GPL-3.0-only OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtquick3d-examples_git.bb b/recipes-qt/qt6/qtquick3d-examples_git.bb
+index 8b6d1c2a..91a14ba4 100644
+--- a/recipes-qt/qt6/qtquick3d-examples_git.bb
++++ b/recipes-qt/qt6/qtquick3d-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | BSD-3-Clause) & CC0-1.0 & MIT"
++LICENSE = "CC0-1.0 AND MIT AND (BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/CC0-1.0.txt;md5=65d3616852dbf7b1a6d4b53b00626032 \
+diff --git a/recipes-qt/qt6/qtquick3d_git.bb b/recipes-qt/qt6/qtquick3d_git.bb
+index 22e0014e..d4696433 100644
+--- a/recipes-qt/qt6/qtquick3d_git.bb
++++ b/recipes-qt/qt6/qtquick3d_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & GPL-3.0-only & GFDL-1.3-no-invariants-only) & Apache-2.0 & BSD-3-Clause & BSL-1.0 & CC-BY-4.0 & MIT"
++LICENSE = "Apache-2.0 AND BSD-3-Clause AND BSL-1.0 AND CC-BY-4.0 AND MIT AND (GFDL-1.3-no-invariants-only AND GPL-3.0-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/Apache-2.0.txt;md5=b4c615f64dff32f71eeed614d13dfd4c \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+diff --git a/recipes-qt/qt6/qtquick3dphysics-examples_git.bb b/recipes-qt/qt6/qtquick3dphysics-examples_git.bb
+index b1b17dd7..d87030de 100644
+--- a/recipes-qt/qt6/qtquick3dphysics-examples_git.bb
++++ b/recipes-qt/qt6/qtquick3dphysics-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtquick3dphysics_git.bb b/recipes-qt/qt6/qtquick3dphysics_git.bb
+index c7a106ee..308885e2 100644
+--- a/recipes-qt/qt6/qtquick3dphysics_git.bb
++++ b/recipes-qt/qt6/qtquick3dphysics_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & GFDL-1.3-no-invariants-only ) & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND (GFDL-1.3-no-invariants-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtquickdesigner-components_git.bb b/recipes-qt/qt6/qtquickdesigner-components_git.bb
+index 426f6add..cff7e269 100644
+--- a/recipes-qt/qt6/qtquickdesigner-components_git.bb
++++ b/recipes-qt/qt6/qtquickdesigner-components_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "GPL-3.0-only | The-Qt-Company-Commercial"
++LICENSE = "GPL-3.0-only OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSE.GPL3;md5=d32239bcb673463ab874e80d47fae504 \
+ "
+diff --git a/recipes-qt/qt6/qtquicktimeline_git.bb b/recipes-qt/qt6/qtquicktimeline_git.bb
+index 8189e1bb..db370ae3 100644
+--- a/recipes-qt/qt6/qtquicktimeline_git.bb
++++ b/recipes-qt/qt6/qtquicktimeline_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtremoteobjects-examples_git.bb b/recipes-qt/qt6/qtremoteobjects-examples_git.bb
+index a6148a45..ff3e014d 100644
+--- a/recipes-qt/qt6/qtremoteobjects-examples_git.bb
++++ b/recipes-qt/qt6/qtremoteobjects-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtremoteobjects_git.bb b/recipes-qt/qt6/qtremoteobjects_git.bb
+index 173e3bd8..4c065a65 100644
+--- a/recipes-qt/qt6/qtremoteobjects_git.bb
++++ b/recipes-qt/qt6/qtremoteobjects_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtscxml-examples_git.bb b/recipes-qt/qt6/qtscxml-examples_git.bb
+index c2ec9592..f1b2c84d 100644
+--- a/recipes-qt/qt6/qtscxml-examples_git.bb
++++ b/recipes-qt/qt6/qtscxml-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtscxml_git.bb b/recipes-qt/qt6/qtscxml_git.bb
+index 3508a8e1..2ef7a785 100644
+--- a/recipes-qt/qt6/qtscxml_git.bb
++++ b/recipes-qt/qt6/qtscxml_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtsensors-examples_git.bb b/recipes-qt/qt6/qtsensors-examples_git.bb
+index 91d98dee..bb9ff45b 100644
+--- a/recipes-qt/qt6/qtsensors-examples_git.bb
++++ b/recipes-qt/qt6/qtsensors-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtsensors_git.bb b/recipes-qt/qt6/qtsensors_git.bb
+index bd05d954..56f9d79f 100644
+--- a/recipes-qt/qt6/qtsensors_git.bb
++++ b/recipes-qt/qt6/qtsensors_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtserialbus-examples_git.bb b/recipes-qt/qt6/qtserialbus-examples_git.bb
+index 6e2425c5..5fdff806 100644
+--- a/recipes-qt/qt6/qtserialbus-examples_git.bb
++++ b/recipes-qt/qt6/qtserialbus-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtserialbus_git.bb b/recipes-qt/qt6/qtserialbus_git.bb
+index 172a2e1f..5a307c80 100644
+--- a/recipes-qt/qt6/qtserialbus_git.bb
++++ b/recipes-qt/qt6/qtserialbus_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtserialport-examples_git.bb b/recipes-qt/qt6/qtserialport-examples_git.bb
+index d746ef41..009cca17 100644
+--- a/recipes-qt/qt6/qtserialport-examples_git.bb
++++ b/recipes-qt/qt6/qtserialport-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtserialport_git.bb b/recipes-qt/qt6/qtserialport_git.bb
+index 753e244d..a5d6ea77 100644
+--- a/recipes-qt/qt6/qtserialport_git.bb
++++ b/recipes-qt/qt6/qtserialport_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtshadertools_git.bb b/recipes-qt/qt6/qtshadertools_git.bb
+index d61dae33..cb688c6c 100644
+--- a/recipes-qt/qt6/qtshadertools_git.bb
++++ b/recipes-qt/qt6/qtshadertools_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & GFDL-1.3-no-invariants-only) & (Apache-2.0 | MIT) & BSD-3-Clause & BSD-2-Clause & Apache-2.0 & GPL-3-with-bison-exception"
++LICENSE = "Apache-2.0 AND BSD-2-Clause AND BSD-3-Clause AND (GFDL-1.3-no-invariants-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial) AND (Apache-2.0 OR MIT) AND GPL-3.0-or-later WITH Bison-exception-2.2"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/Apache-2.0.txt;md5=c846ebb396f8b174b10ded4771514fcc \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+diff --git a/recipes-qt/qt6/qtspeech-examples_git.bb b/recipes-qt/qt6/qtspeech-examples_git.bb
+index d7ca5b7e..381da28a 100644
+--- a/recipes-qt/qt6/qtspeech-examples_git.bb
++++ b/recipes-qt/qt6/qtspeech-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtspeech_git.bb b/recipes-qt/qt6/qtspeech_git.bb
+index 5d587220..0b8ca1f0 100644
+--- a/recipes-qt/qt6/qtspeech_git.bb
++++ b/recipes-qt/qt6/qtspeech_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (LGPL-3.0-only | GPL-2.0-only) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR LGPL-3.0-only) AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtsvg_git.bb b/recipes-qt/qt6/qtsvg_git.bb
+index 2c8154f3..89284faa 100644
+--- a/recipes-qt/qt6/qtsvg_git.bb
++++ b/recipes-qt/qt6/qtsvg_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | GPL-3.0-only & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause) & HPND-sell-variant"
++LICENSE = "HPND-sell-variant AND (BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qttasktree-examples_git.bb b/recipes-qt/qt6/qttasktree-examples_git.bb
+index a23f0979..17455a5f 100644
+--- a/recipes-qt/qt6/qttasktree-examples_git.bb
++++ b/recipes-qt/qt6/qttasktree-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qttasktree_git.bb b/recipes-qt/qt6/qttasktree_git.bb
+index eda81a00..99383ba7 100644
+--- a/recipes-qt/qt6/qttasktree_git.bb
++++ b/recipes-qt/qt6/qttasktree_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qttools-examples_git.bb b/recipes-qt/qt6/qttools-examples_git.bb
+index 2d99768d..1ac548cc 100644
+--- a/recipes-qt/qt6/qttools-examples_git.bb
++++ b/recipes-qt/qt6/qttools-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qttools_git.bb b/recipes-qt/qt6/qttools_git.bb
+index c6e2391c..87f9e788 100644
+--- a/recipes-qt/qt6/qttools_git.bb
++++ b/recipes-qt/qt6/qttools_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only) & Apache-2.0 & BSD-3-Clause & BSL-1.0 & MIT"
++LICENSE = "Apache-2.0 AND BSD-3-Clause AND BSL-1.0 AND MIT AND (GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/BSL-1.0.txt;md5=8c92b4c255bdcce2989707d5b8a4d302 \
+diff --git a/recipes-qt/qt6/qttranslations_git.bb b/recipes-qt/qt6/qttranslations_git.bb
+index 53b0c53d..d47b6dd2 100644
+--- a/recipes-qt/qt6/qttranslations_git.bb
++++ b/recipes-qt/qt6/qttranslations_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0)"
++LICENSE = "LicenseRef-The-Qt-Company-Commercial OR GPL-3.0-only WITH Qt-GPL-exception-1.0"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/GPL-3.0-only.txt;md5=d32239bcb673463ab874e80d47fae504 \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtvirtualkeyboard-examples_git.bb b/recipes-qt/qt6/qtvirtualkeyboard-examples_git.bb
+index 649a222f..15278b3d 100644
+--- a/recipes-qt/qt6/qtvirtualkeyboard-examples_git.bb
++++ b/recipes-qt/qt6/qtvirtualkeyboard-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtvirtualkeyboard_git.bb b/recipes-qt/qt6/qtvirtualkeyboard_git.bb
+index 1629352a..3f124444 100644
+--- a/recipes-qt/qt6/qtvirtualkeyboard_git.bb
++++ b/recipes-qt/qt6/qtvirtualkeyboard_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & GFDL-1.3-no-invariants-only) & Apache-2.0 & BSD-3-Clause"
++LICENSE = "Apache-2.0 AND BSD-3-Clause AND (GFDL-1.3-no-invariants-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+     file://LICENSES/GPL-3.0-only.txt;md5=d32239bcb673463ab874e80d47fae504 \
+diff --git a/recipes-qt/qt6/qtvncserver-examples_git.bb b/recipes-qt/qt6/qtvncserver-examples_git.bb
+index db433f02..62f058b0 100644
+--- a/recipes-qt/qt6/qtvncserver-examples_git.bb
++++ b/recipes-qt/qt6/qtvncserver-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtvncserver_git.bb b/recipes-qt/qt6/qtvncserver_git.bb
+index f4b3ae14..5d0e22f1 100644
+--- a/recipes-qt/qt6/qtvncserver_git.bb
++++ b/recipes-qt/qt6/qtvncserver_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial"
++LICENSE = "LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = "\
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtwayland-examples_git.bb b/recipes-qt/qt6/qtwayland-examples_git.bb
+index e5dbf845..bb940c30 100644
+--- a/recipes-qt/qt6/qtwayland-examples_git.bb
++++ b/recipes-qt/qt6/qtwayland-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtwayland_git.bb b/recipes-qt/qt6/qtwayland_git.bb
+index d89410d5..2b43d2c6 100644
+--- a/recipes-qt/qt6/qtwayland_git.bb
++++ b/recipes-qt/qt6/qtwayland_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause) & MIT"
++LICENSE = "MIT AND (BSD-3-Clause AND GFDL-1.3-no-invariants-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtwebchannel-examples_git.bb b/recipes-qt/qt6/qtwebchannel-examples_git.bb
+index a095e60c..e6083843 100644
+--- a/recipes-qt/qt6/qtwebchannel-examples_git.bb
++++ b/recipes-qt/qt6/qtwebchannel-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only)"
++LICENSE = "BSD-3-Clause AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GPL-2.0-only.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+diff --git a/recipes-qt/qt6/qtwebchannel_git.bb b/recipes-qt/qt6/qtwebchannel_git.bb
+index bd354c4a..0a17ac81 100644
+--- a/recipes-qt/qt6/qtwebchannel_git.bb
++++ b/recipes-qt/qt6/qtwebchannel_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtwebengine-examples_git.bb b/recipes-qt/qt6/qtwebengine-examples_git.bb
+index 58499554..bbae0d8e 100644
+--- a/recipes-qt/qt6/qtwebengine-examples_git.bb
++++ b/recipes-qt/qt6/qtwebengine-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | BSD-3-Clause) & Apache-2.0 & LicenseRef-Tango-Icons-Public-Domain & MIT"
++LICENSE = "Apache-2.0 AND MIT AND LicenseRef-Tango-Icons-Public-Domain AND (BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/Apache-2.0.txt;md5=b4c615f64dff32f71eeed614d13dfd4c \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = " \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+     file://LICENSES/MIT.txt;md5=3605d54ecceddcd50962eb89318779ec \
+ "
+-NO_GENERIC_LICENSE[LicenseRef-Tango-Icons-Public-Domain] = "LICENSES/LicenseRef-Tango-Icons-Public-Domain.txt"
++NO_GENERIC_LICENSE[Tango-Icons-Public-Domain] = "LICENSES/LicenseRef-Tango-Icons-Public-Domain.txt"
+ 
+ inherit qt6-cmake
+ inherit features_check
+diff --git a/recipes-qt/qt6/qtwebengine.inc b/recipes-qt/qt6/qtwebengine.inc
+index 69e2fcac..e0ac48cf 100644
+--- a/recipes-qt/qt6/qtwebengine.inc
++++ b/recipes-qt/qt6/qtwebengine.inc
+@@ -1,4 +1,4 @@
+-LICENSE = "(The-Qt-Company-Commercial | (GPL-3.0-only & Qt-GPL-exception-1.0) & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & LGPL-2.0-or-later & GFDL-1.3-no-invariants-only) & BSD-3-Clause & Apache-2.0 & MIT"
++LICENSE = "Apache-2.0 AND BSD-3-Clause AND MIT AND (GFDL-1.3-no-invariants-only AND LGPL-2.0-or-later AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) AND GPL-3.0-only WITH Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial)"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/Apache-2.0.txt;md5=b4c615f64dff32f71eeed614d13dfd4c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtwebsockets-examples_git.bb b/recipes-qt/qt6/qtwebsockets-examples_git.bb
+index acfa4430..91b72557 100644
+--- a/recipes-qt/qt6/qtwebsockets-examples_git.bb
++++ b/recipes-qt/qt6/qtwebsockets-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtwebsockets_git.bb b/recipes-qt/qt6/qtwebsockets_git.bb
+index dc880015..745fd6b4 100644
+--- a/recipes-qt/qt6/qtwebsockets_git.bb
++++ b/recipes-qt/qt6/qtwebsockets_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+diff --git a/recipes-qt/qt6/qtwebview-examples_git.bb b/recipes-qt/qt6/qtwebview-examples_git.bb
+index 19fd090c..ebbf1297 100644
+--- a/recipes-qt/qt6/qtwebview-examples_git.bb
++++ b/recipes-qt/qt6/qtwebview-examples_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | BSD-3-Clause"
++LICENSE = "BSD-3-Clause OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/LicenseRef-Qt-Commercial.txt;md5=40a1036f91cefc0e3fabad241fb5f187 \
+diff --git a/recipes-qt/qt6/qtwebview_git.bb b/recipes-qt/qt6/qtwebview_git.bb
+index ddf133da..de07e22d 100644
+--- a/recipes-qt/qt6/qtwebview_git.bb
++++ b/recipes-qt/qt6/qtwebview_git.bb
+@@ -1,4 +1,4 @@
+-LICENSE = "The-Qt-Company-Commercial | GPL-3.0-only & (LGPL-3.0-only | GPL-2.0-only | GPL-3.0-only) & GFDL-1.3-no-invariants-only & BSD-3-Clause"
++LICENSE = "BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial"
+ LIC_FILES_CHKSUM = " \
+     file://LICENSES/BSD-3-Clause.txt;md5=cb40fa7520502d8c7a3aea47cae1316c \
+     file://LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0 \
+-- 
+2.34.1
+

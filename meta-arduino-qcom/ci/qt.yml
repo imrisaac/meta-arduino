@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/siemens/kas/master/kas/schema-kas.json
+
+# Qt Quick overlay, applied on top of the fast-boot one:
+#   kas build ci/imola.yml:ci/fastboot.yml:ci/qt.yml --target arduino-fastboot-qt-image
+# Adds meta-qt6, which enables the recipes in dynamic-layers/qt6-layer.
+
+header:
+  version: 14
+
+repos:
+  meta-qt6:
+    url: https://code.qt.io/yocto/meta-qt6.git
+    branch: "6.12"
+    commit: 3d9da06dce7e00c5a419e870234a86bddf991bab
+    patches:
+      # blacksail's license parser rejects the pre-SPDX syntax of 6.12
+      spdx-license:
+        repo: meta-arduino
+        path: meta-arduino-qcom/ci/patches/meta-qt6/0001-recipes-update-LICENSE-to-SPDX-Expression-syntax.patch
+
+bblayers_conf_header:
+  qt: |
+    # Only meta-qt6's dev branch (Qt 6.13 pre-release) declares blacksail;
+    # 6.12 is the current Qt release and is declared up to wrynose. Layer
+    # compatibility is checked before local.conf is read, hence here.
+    LAYERSERIES_COMPAT_qt6-layer:append = " blacksail"
+
+local_conf_header:
+  qt: |
+    # The default git:// protocol is often blocked; code.qt.io serves https too.
+    QT_GIT_PROTOCOL = "https"
+    # The distro enables ptest, which would build every Qt module's test suite.
+    QT_PTEST_ENABLED = "0"
+    # The cluster draws with OpenGL ES straight to KMS, without a compositor.
+    PACKAGECONFIG:append:pn-qtbase = " eglfs gbm gles2 kms"
+    # Cameras through GStreamer: the FFmpeg backend needs ffmpeg, which is
+    # LICENSE_FLAGS "commercial". No spatial audio, which would pull in Qt Quick
+    # 3D, and plain ALSA for audio, which the cluster does not play anyway.
+    PACKAGECONFIG:pn-qtmultimedia = "alsa gstreamer qml"
+
+target:
+  - arduino-fastboot-qt-image

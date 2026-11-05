@@ -1,0 +1,27 @@
+[Unit]
+Description=Arduino Cluster (Qt Quick)
+# Same early start as arduino-dash: only the rootfs, the journal and the
+# display and GPU drivers loaded by systemd-modules-load are needed.
+DefaultDependencies=no
+After=systemd-journald.socket systemd-modules-load.service
+Conflicts=shutdown.target
+Before=arduino-app.target shutdown.target
+
+[Service]
+# READY=1 is sent once the first frame has been handed to the display
+Type=notify
+ExecStart=/usr/bin/arduino-cluster
+Restart=always
+RestartSec=1
+# Holds the generated eglfs KMS config; also serves as XDG_RUNTIME_DIR
+RuntimeDirectory=arduino-cluster
+Environment=XDG_RUNTIME_DIR=/run/arduino-cluster
+Environment=QT_QPA_PLATFORM=eglfs
+Environment=QT_QPA_EGLFS_INTEGRATION=eglfs_kms
+# No touch, keys or mouse on the cluster, and udev is not up yet to list them;
+# arduino-cluster-mouse turns input on for development
+Environment=QT_QPA_EGLFS_DISABLE_INPUT=1
+Environment=QT_QPA_EGLFS_HIDECURSOR=1
+
+[Install]
+WantedBy=arduino-app.target

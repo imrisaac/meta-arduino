@@ -16,7 +16,7 @@ inherit core-image
 IMAGE_INSTALL = " \
     packagegroup-core-boot \
     arduino-boot-indicator \
-    arduino-dash \
+    ${FASTBOOT_APP} \
     arduino-fastboot \
     arduino-router \
     arduino-device-tree \
@@ -26,10 +26,15 @@ IMAGE_INSTALL = " \
     ${CORE_IMAGE_EXTRA_INSTALL} \
 "
 
+# The application that draws the first frame. arduino-fastboot-qt-image
+# replaces it with the Qt Quick cluster.
+FASTBOOT_APP ?= "arduino-dash"
+
 # Installed, but started only once arduino-app.target is reached
 FASTBOOT_DEFERRED_INSTALL ?= " \
     arduino-usb-gadget \
     libusbgx-config \
+    avahi-daemon \
     bluez5 \
     expand-rootfs \
     networkmanager \
